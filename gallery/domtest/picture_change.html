@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="picture_change.css">
+</head>
+<body>
+  <h1>Snapshots</h1>
+  <ul id="gallery">
+    <li>
+      <a href="images/1.jpg " title="pic 1" >pic 1</a>
+    </li>
+    <li>
+      <a href="images/2.jpg " title="pic 2" >pic 2</a>
+    </li>
+    <li>
+      <a href="images/3.jpg " title="pic 3">pic 3</a>
+    </li>
+    <li>
+      <a href="images/4.jpg " title="pic 4" >pic 4</a>
+    </li>
+  </ul>
+  <br>
+  <p id="des">Choose an image</p>
+  <img src="images/5.jpg" alt="占位符" id="place">
+  <script>
+      function prepareGallery(){
+        // if(!document.getElementByTagName) return false;
+        // if(!document.getElementById)return flase;
+        // if(!document.getElementById('imagegallery')) return false;
+        var gallery = document.getElementById("gallery");
+        var links = gallery.getElementsByTagName("a");
+        for(let i=0;i<links.length;i++){
+          links[i].onclick = function(){
+            return showPic(this)?false:true;
+          }
+        }
+      }
+      function showPic(whichpic){
+        // if(!document.getElementById("placeholder"));
+        var source = whichpic.getAttribute('href');
+        var place = document.getElementById('place');
+        // if(placeholder.nodeName != "IMG") return false;
+        place.setAttribute('src',source);
+        if(document.getElementById("des")){
+            var text = whichpic.getAttribute('title')?whichpic.getAttribute('title'):"";
+            var des = document.getElementById('des');
+            if(des.firstChild.nodeType == 3){
+                des.firstChild.nodeValue = text;
+      }
+    }
+      return true;
+}
+      function addLoadEvent(func){
+        var oldonload = window.onload;
+        if(typeof window.onload != 'function'){
+          window.onload = func;
+        }else{
+          window.onload = function(){
+            oldonload();
+            func();
+          }
+        }
+      }
+
+      window.onload = prepareGallery;
+  </script>
+</body>
+</html>

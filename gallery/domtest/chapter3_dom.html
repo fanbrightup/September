@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  p{
+    color:yellow;
+    font-family:"arial",sans-serif;
+    font-size:1.2em;
+  }
+  #purchases{
+    border: blue solid 1px;
+  }
+  #purchases li{
+    font-weight:bold;
+  }
+  </style>
+</head>
+<body>
+  <h1>What to buy</h1>
+  <p title="a gentle reminder"  id="pid">Don't forget to
+          buy this stuff</p>
+  <ul id="purchases">
+    <li>A tin of beans</li>
+    <li class='sale'>Cheese</li>
+    <li class='sale important'>Milk</li>
+  </ul>
+  <script>
+      var li = document.getElementsByTagName('li');
+      var paras = document.getElementsByTagName('p');
+      // var shopping = document.getElementById('purchases');
+      // shopping.setAttribute('title','a list of goods');
+      // console.log(shopping.getAttribute('title'));
+      for(let i=0;i<paras.length;i++){
+        var title_text = paras[i].getAttribute('title');
+        if(title_text){
+          paras[i].setAttribute('title','brand new title text');
+          console.log(paras[i].getAttribute('title'));
+        }
+      }
+      var body_element = document.getElementsByTagName('body')[0];
+      console.log(body_element.childNodes);
+  </script>
+</body>
+</html>

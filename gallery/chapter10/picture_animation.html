@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h1>Web Design</h1>
+    <p>These are the things you should know</p>
+    <ol id="linklist">
+      <li>
+        <a href="first"></a>
+      </li>
+      <li>
+        <a href="second"></a>
+      </li>
+      <li>
+        <a href="third"></a>
+      </li>
+    </ol>
+    <div id="slideshow"><img src="pic.png" alt="picture" id="preview"></div>
+  <script>
+
+    function prepareSlideshow(){
+      var preview = document.getElementById('preview');
+      preview.style.position = 'absolute';
+      preview.style.left = '0px';
+      preview.style.top = '0px';
+      var list = document.getElementById('linklist');
+      var links = list.getElementsByTagName('a');
+      links[0].onmouseover = ()=>{
+        moveElement('preview',-100,0,10);
+      }
+      links[1].onmouseover = ()=>{
+        moveElement('preview',-200,0,10);
+      }
+      links[2].onmouseover = ()=>{
+        moveElement('preview',-300,0,10);
+      }
+    }
+    function moveElement(elementID,final_x,final_y,interval){
+      var elem = document.getElementById(elementID);
+      if(elem.movement){
+        clearTimeout(elem.movement);
+      }
+      var xpos = parseInt(elem.style.left);
+      var ypos = parseInt(elem.style.top);
+      var dist = 0;
+      if(xpos == final_x&& ypos == final_y)   return true;
+      if(xpos < final_x){
+        dist = Math.ceil((final_x - xops)/10);
+        xpos = xpos + dist;
+      }
+      if(xpos > final_x){
+        dist = Math.ceil((final_x - xops)/10);
+        xpos = xpos - dist;
+      }
+      if(ypos < final_y){
+        dist = Math.ceil((final_y - yops)/10);
+        ypos = ypos + dist;
+      }
+      if(ypos < final_y){
+        dist = Math.ceil((final_y - yops)/10);
+        ypos = ypos - dist;
+      }
+      elem.style.left = xpos + "px";
+      elem.style.top = ypos + "px";
+      var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+      elem.movement = setTimeout(repeat,interval);
+    }
+    function addLoadEvent(fnc){
+      var oldOnLoad = window.onload;
+      if(typeof window.onload != 'function'){
+        window.onload = fnc;
+      }else{
+        window.onload = function (){
+          oldOnLoad();
+          fnc();
+        }
+      }
+    }
+    addLoadEvent(prepareSlideshow);
+    // addLoadEvent(moveMessage);
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p id="message">Whee!</p>
+  <p id="message2">Whee!</p>
+  <script>
+    function positionMessage(){
+      var elem = document.getElementById('message');
+      var elem2 = document.getElementById('message2');
+      elem.style.position = 'absolute';
+      elem.style.left = 500;
+      elem.style.top = 500;
+      elem2.style.position = 'absolute';
+      elem2.style.left = 150;
+      elem2.style.top = 150;
+
+      moveElement('message',200,100,10);
+      moveElement('message2',300,400,10);
+
+    }
+    function moveElement(elementID,final_x,final_y,interval){
+      var elem = document.getElementById(elementID);
+      var xpos = parseInt(elem.style.left);
+      var ypos = parseInt(elem.style.top);
+      if(xpos == final_x&& ypos == final_y)   return true;
+      if(xpos < final_x)  xpos++;
+      if(xpos > final_x)  xpos--;
+      if(ypos < final_y)  ypos++;
+      if(ypos > final_y)  ypos--;
+      elem.style.left = xpos + "px";
+      elem.style.top = ypos + "px";
+      var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+      movement = setTimeout(repeat,interval);
+    }
+    function addLoadEvent(fnc){
+      var oldOnLoad = window.onload;
+      if(typeof window.onload != 'function'){
+        window.onload = fnc;
+      }else{
+        window.onload = function (){
+          oldOnLoad();
+          fnc();
+        }
+      }
+    }
+    addLoadEvent(positionMessage);
+    // addLoadEvent(moveMessage);
+  </script>
+</body>
+</html>

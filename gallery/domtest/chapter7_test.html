@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id = 'testdiv'>
+
+  </div>
+  <script>
+    window.onload = function(){
+      var para = document.createElement('p');
+      var txt1 = document.createTextNode('This is ');
+      para.appendChild(txt1);
+
+      var emphasis = document.createElement('em');
+      var txt2 = document.createTextNode('my');
+      emphasis.appendChild(txt2);
+      para.appendChild(emphasis);
+      var txt3 = document.createTextNode('  Content');
+      para.appendChild(txt3);
+      var testdiv = document.getElementById('testdiv');
+      testdiv.appendChild(para);
+      para.setAttribute('title','这是p的title')
+      para.title='这是新的title';
+      console.log(para.title);
+      console.log(para.firstChild.nodeType);
+    }
+
+
+
+  </script>
+</body>
+</html>
