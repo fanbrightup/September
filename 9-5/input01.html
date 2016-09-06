@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Create a New Account</h1>
+  <form action="show.js" method="post">
+    <fieldset>
+      <h2>Account</h2>
+      <div class="fields">
+        <p class="row">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" value="张三" >
+        </p>
+        <p class="row">
+          <label for="last-name">First Name:</label>
+          <input type="text" id="last-name" placeholder="李四" autocomplete="on" autofocus size=3 maxlength=5>
+        </p>
+        <p>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" maxlength= 10 />
+        </p>
+        <p>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+        </p>
+        <p>
+          <label for="website">Website URL:</label>
+          <input type="url" id="website" multiple placeholer="http://www.example.com" />
+          <p>beginning with <kbd>http://</kbd> or <kbd>https://</kbd> </p>
+        </p>
+        <p>
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" placeholder="xxx-xxxx-xxxx" pattern="\d{3}-\d{4}-\d{4}" />
+        </p>
+        <p>
+          <input type="search" placeholder="what you want" role="search">
+        </p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>选择性别</legend>
+      <input type="radio" name="gender" id="gender-male" value="male" />
+      <label for="gender-male">Male</label>
+      <input type="radio" name="gender" checked id="gender-female" value="female" />
+      <label for="gender-female">Female</label>
+
+    </fieldset>
+
+    <input type="submit" class="btn" value="Create Account">
+  </form>
+</body>
+</html>

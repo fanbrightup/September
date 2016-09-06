@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    :disabled{
+      border:5px solid yellow;
+    }
+    input[type="submit"]:focus{background-color:green-}
+
+
+    /*textarea{
+      border:1px solid red;
+      resize:none;
+    }*/
+  </style>
+</head>
+<body>
+  <input type="submit">
+  <form action="s">
+    <input type="checkbox" value=1 name="s">
+    <input type="checkbox" name="s" value=2>
+    <input type="checkbox" name="s" value=3>
+    <input type="checkbox" name="s" value=4>
+  </form>
+  <button onclick="changeState()">启用或停用textarea</button>
+  <textarea name="bio" id="bio" cols="40" disabled rows="5"  ></textarea>
+  <select name="state" id="state" >
+    <optgroup label="Online">
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+    </optgroup>
+    <optgroup label="Offline">
+    <option value="BJ" >Beijing</option>
+    <option value="CD" selected>Chengdu</option>
+  </optgroup>
+  </select>
+<!--上传文件 -->
+<hr>
+  <form action="post_date" method="post" enctype="multipart/form-data">
+    <label for="picture">Picture:</label>
+    <input type="file" id="picture" name="picture">
+    <p>Maximun size of 700k</p>
+  </form>
+
+  <hr>
+  <!-- 隐藏字段 -->
+  <input type="hidden" value="myhiddendata">
+
+  <input type="text" value="FREE" readonly>
+  <form action="ss" >
+
+    <label for="url">website:</label>
+    <input id="url" type="url" disabled value="hh">
+    <button type="sumbit" formnovalidate >创建用户</button>
+  </form>
+  <script>
+    function changeState(){
+      var textarea = document.getElementById('bio');
+      if(textarea.disabled){
+        textarea.disabled = false;
+      }else{
+        textarea.disabled = true;
+      }
+    }
+    var city = document.getElementById('state');
+    console.log(city.value);
+  </script>
+</body>
+</html>
