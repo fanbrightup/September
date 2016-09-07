@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="text001">
+  <br>
+  <script>
+    function readData(){
+      var textNode = document.getElementById("text001");
+      textNode.value = window.sessionStorage.getItem("data001")
+      alert("Write Data ok"+textNode.textContent+"hhhhs");
+    }
+    window.onload = readData;
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>  
+<body>
+  <input type="text" id="text001">
+  <br>
+  <button onclick="writeData()" title="hhhh" id="btn">WriteData</button>
+  <a href="StorageMessagingB.html">Next Page</a>
+  <script>
+    function writeData(){
+      var textNode = document.getElementById("text001");
+      window.sessionStorage.setItem("data001",textNode.value);
+      alert("Write Data ok"+textNode.textContent+"hhhhs");
+    }
+
+  </script>
+</body>
+</html>

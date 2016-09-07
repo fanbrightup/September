@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+  <input type="text" id="text001">
+  <br>
+  <button onclick = mywriteData id="wid">WriteData</button>
+  <button onclick = myreadData id="yid">ReadData</button>
+  <script>
+    function mywriteData(){
+      var textNode = document.getElementById("text001");
+      window.localStorage.setItem("data001",textNode.value);
+      alert("write Data OK");
+    }
+    function myreadData(){
+      var textNode = document.getElementById('text001');
+      textNode.value = window.localStorage.getItem("data001");
+      alert("Read Data OK");
+    }
+    document.getElementById('wid').onclick=mywriteData;
+    document.getElementById('yid').onclick=myreadData;
+  </script>
+</body>
+</html>

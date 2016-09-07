@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var credentials = require('./lib/credentials.js');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -24,7 +24,7 @@ app.use(favicon(path.join(__dirname,'public/images','favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(credentials.cookieSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/fan/:id',(req,res,next)=>{
     console.log('Time is' + new Date());next();
@@ -35,9 +35,16 @@ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  // var err = new Error('Not Found');
+  // err.status = 404;
+  // // next(err);
+  // // res.writeHead(200,{'Content-Type':'text/html'});
+  // function myerr(){
+  //   res.end('after 3s will be homepage ...')
+  // }
+  // setTimeout(myerr,3000);;
+  // res.redirect('/');
+  res.render('error');
 });
 
 // error handlers
