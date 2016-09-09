@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="div_test" class="">
+      这是测试div
+    </div>
+    <button  type="button" id="add_A" name="button">添加事件A</button>
+    <button type="button" id="add_B" name="button">添加事件B</button>
+    <hr>
+    <button type="button" id="remove_A" name="button">删除事件A</button>
+    <button type="button" id="remove_B" onclick="rm_B()" name="button">删除事件B</button>
+    <script type="text/javascript">
+      var div_test = document.getElementById('div_test');
+      var add_A = document.getElementById('add_A');
+      var add_B = document.getElementById('add_B');
+      var remove_A = document.getElementById('remove_A');
+      var remove_B = document.getElementById('remove_B');
+      window.onload = ()=>{
+          div_test.addEventListener('click',funA,false);
+          div_test.addEventListener('click',funB,false);
+    }
+    // remove_A.onclick=remove_B;
+    function rm_B() {
+    div_test.removeEventListener('click',funB,false);
+  }
+  div_test.removeEventListener('click',funB,false);
+    function funA(){
+        alert('this is funA');
+    }
+    function funB(){
+        alert('this is funB');
+    }
+
+    </script>
+  </body>
+</html>
