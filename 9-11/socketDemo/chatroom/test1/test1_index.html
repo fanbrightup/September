@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <form id="messageform" action="#">
+    <textarea id="message" name="name" rows="8" cols="40"></textarea>
+    <input type="submit" value="Send message">
+  </form> -->
+  <textarea id="message" name="name" rows="8" cols="40"></textarea>
+  <!-- <button onclick="sendMessage()">Send</button> -->
+  <input type="button" onclick="sendMessage()" value="send">
+  <p id="pid"></p>
+  <!-- <script src="jquery.js"></script> -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect('http://127.0.0.1:3000');
+    var message = document.getElementById('message');
+    var chatMessage = document.getElementById('pid').textContent;
+    console.log(message.value);
+    function sendMessage(){
+      socket.emit('message',{text:message.value});
+    }
+    socket.on('pushMessage',(data)=>{
+      chatMessage += '<br>';
+      chatMessage +=data.text;
+      document.getElementById('pid').innerHTML =chatMessage ;
+    })
+    // $("messageform").submit(function(){
+    //   socket.emit('message',{text:message.value});
+    //   return false;
+    // });
+    // socket.on('push message',(data)=>{
+    //   $('form').after('<p>'+data.text+'</p>');
+    // })
+  </script>
+</body>
+</html>
