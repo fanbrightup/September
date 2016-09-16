@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  Express
+  express
+  <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+  <script>
+    var client = io.conncet('http://localhost:8000');
+    client.on('error',function(err){
+      console.log(err);
+    });
+    client.on('welcome',function(data){
+      alert(data);
+    })
+    console.log('hhhhhh');
+  </script>
+</body>
+</html>

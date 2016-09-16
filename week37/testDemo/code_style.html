@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .languagejavascript{
+      background-color: lime;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class = 'languagejavascript'>
+
+  <pre>
+    function strMapToObj(strMap) {
+      let obj = Object.create(null);
+      for (let [k,v] of strMap) {
+        obj[k] = v;
+      }
+      return obj;
+    }
+
+    let myMap = new Map().set('yes', true).set('no', false);
+    strMapToObj(myMap)
+    // { yes: true, no: false }
+  </pre>
+</div>
+
+
+</body>
+</html>

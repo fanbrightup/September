@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .container{
+      border:1px solid red;
+    }
+    .left{
+      border:1px solid green;
+      float:left;
+      width:45%;
+    }
+    .right{
+      border:1px solid green;
+
+      float:right;
+      width:45%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    这是父元素
+    <div class="left">左</div>
+    <div class="right">右</div>
+  </div>
+  <script>
+    // window.prompt('heee');
+    window.addEventListener("storage",onStorageChange);
+    function onStorageChange(e) {
+     console.log('hh');
+   }
+
+  </script>
+</body>
+</html>
