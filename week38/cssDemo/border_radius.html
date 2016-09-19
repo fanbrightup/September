@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  div{
+    border:1px solid lime;
+    border-radius:500px;
+  }
+  p{
+    border:3px solid lime;
+    width:300px;
+    border-radius: 40px/20px;
+    /*border-radius: 20px 30px 40px 50px/20px;*/
+    /*border-top-left-radius:10px;*/
+    /*border-top-right-radius:10px;*/
+  }
+  div.f{
+    float:left;
+    width:100px;
+
+  }
+  .a{
+    clear:both;
+  }
+  .b{
+    /*clear:both;*/
+  }
+  .clearfix{
+    clear:left;
+  }
+  </style>
+</head>
+<body>
+  <div>a</div>
+  <p>aaa</p>
+  <div class = 'container clearfix'>
+
+  <div class="f a">a</div>
+  <div class="f b">b</div>
+  <div class="f c clearfix">c</div>
+</div>
+</body>
+</html>
