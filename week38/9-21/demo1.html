@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  这是主页
+  <p></p>
+  <img src="../../images/1.jpg" alt="">
+  <script>
+    var interval = setInterval(()=>{
+      if(document.readyState === 'complete'){
+        clearInterval(interval);
+        console.log('ready');
+      }else{
+        console.log('It is not ready ____________________--');
+      }
+
+    },1);
+    var p = document.querySelector('p');
+    p.innerHTML = `
+    <ul>
+      <li>first</li>
+      <li>second</li>
+    </ul>`;
+
+  </script>
+</body>
+</html>
